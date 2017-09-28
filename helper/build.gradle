@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jakewharton.butterknife'
 apply from: '../dependencies.gradle'
 
@@ -21,6 +23,57 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+group = 'me.rohanpeshkar.helper'
+version = versions.versionName
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    failOnError false
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+}
+
+task generateJavaDocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+generateJavaDocsJar.dependsOn generateJavadocs
+
+artifacts {
+    archives generateJavaDocsJar
+    archives generateSourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def bintrayUser = properties.getProperty('bintray.user')
+def bintrayKey = properties.getProperty('bintray.key')
+
+bintray {
+    user = bintrayUser
+    key = bintrayKey
+    pkg {
+        repo = 'maven'
+        name = 'me.rohanpeshkar.helper'
+
+        version {
+            name = versions.versionName
+            released = new Date()
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/rohan2817/Helper.git'
+        websiteUrl = 'https://github.com/rohan2817/Helper'
+    }
+    configurations = ['archives']
 }
 
 dependencies {
