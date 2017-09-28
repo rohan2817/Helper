@@ -68,11 +68,11 @@ dependencies{
 
 ### Contents
 
-1. [HelperActivity](https://github.com/rohan2817/Helper#)
-2. [HelperFragment](https://github.com/rohan2817/Helper#)
-3. [HelperUtils](https://github.com/rohan2817/Helper#)
-4. [HelperPreferences](https://github.com/rohan2817/Helper#)
-5. [HelperStyles](https://github.com/rohan2817/Helper#)
+1. [HelperActivity](https://github.com/rohan2817/Helper#helperactivity)
+2. [HelperFragment](https://github.com/rohan2817/Helper#helperfragment)
+3. [HelperUtils](https://github.com/rohan2817/Helper#helperutils)
+4. [HelperPreferences](https://github.com/rohan2817/Helper#helperpreferences)
+5. [HelperStyles](https://github.com/rohan2817/Helper#helperstyles)
 
 ## HelperActivity
 
