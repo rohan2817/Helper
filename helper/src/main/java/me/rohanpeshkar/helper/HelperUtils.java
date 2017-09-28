@@ -17,38 +17,67 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by rohan on 9/27/17.
+ * This is a Utility class, it contains most of the utility methods that are required by developers.
+ * It has methods to print log to console, checking permissions for android 6 and above,
+ * handling soft keyboard. Detailed use of methods can be seen on methods.
+ * Created by Rohan on 9/27/17.
  */
 
 public class HelperUtils {
 
     private static String LOG_TAG = "HelperLog";
 
+    /**
+     * Method to update the log tag value, current is HelperLog
+     *
+     * @param customTag - String Custom tag to be updated
+     */
     public static void updateTag(String customTag) {
         if (!TextUtils.isEmpty(customTag)) {
             LOG_TAG = customTag;
         }
     }
 
+    /**
+     * Method to log error to logcat
+     *
+     * @param error - String error
+     */
     public static void logError(String error) {
         Log.e(LOG_TAG, error);
     }
 
+    /**
+     * Method to log debug message to logcat
+     *
+     * @param debug - String message
+     */
     public static void logDebug(String debug) {
         Log.d(LOG_TAG, debug);
     }
 
+    /**
+     * Method to log verbose message to logcat
+     *
+     * @param verbose - String message
+     */
     public static void logVerbose(String verbose) {
         Log.v(LOG_TAG, verbose);
     }
 
+    /**
+     * Method to log info message to logcat
+     *
+     * @param info - String message
+     */
     public static void logInfo(String info) {
         Log.i(LOG_TAG, info);
     }
 
 
     /**
-     * Method to check whether has permissions
+     * Method to check whether App has permissions, it is executed if android version is 6 & above
+     * Need to send array of permissions.
      *
      * @param context     -  context of the activity
      * @param permissions - permissions array
@@ -69,7 +98,7 @@ public class HelperUtils {
 
     /**
      * This method retrieves all the permissions declared in the application's manifest.
-     * It returns a non null array of permisions that can be declared.
+     * It returns a non null array of permissions that can be declared.
      *
      * @param activity the Activity necessary to check what permissions we have.
      * @return a non null array of permissions that are declared in the application manifest.
@@ -93,6 +122,12 @@ public class HelperUtils {
         return list.toArray(new String[list.size()]);
     }
 
+    /**
+     * Method to hide soft keyboard from any view
+     *
+     * @param view    - View from which Keyboard to hide
+     * @param context - Context of the calling activity
+     */
     public static void hideKeyboard(View view, Context context) {
         InputMethodManager
                 inputMethodManager = (InputMethodManager) context.getSystemService(
@@ -100,6 +135,12 @@ public class HelperUtils {
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    /**
+     * Method to forcefully show the soft keyboard.
+     *
+     * @param view    - View on which keyboard is to be shown
+     * @param context - Context of the calling activity
+     */
     public static void showKeyboard(View view, Context context) {
         InputMethodManager inputMethodManager = (InputMethodManager)
                 context.getSystemService(Context.INPUT_METHOD_SERVICE);

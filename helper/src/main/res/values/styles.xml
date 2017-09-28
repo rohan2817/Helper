@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Theme to be applied to app extends from base theme -->
     <style name="HelperTheme" parent="HelperTheme.Base">
 
     </style>
 
-    <!--Helper Base Theme for App -->
+    <!--Helper Base Theme for App for all pre-lollipop versions -->
     <style name="HelperTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -15,18 +16,21 @@
         <item name="android:dialogTheme">@style/HelperAlertDialogTheme</item>
     </style>
 
+    <!-- Alert Dialog Theme to be applied in case of custom dialogs-->
     <style name="HelperAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Helper Theme to make any activity full screen -->
     <style name="HelperTheme.FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textStyle">normal</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!-- Helper Theme to make any activity with transparent background -->
     <style name="HelperTheme.Transparent" parent="HelperTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@color/colorTransparent</item>
