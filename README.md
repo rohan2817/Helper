@@ -1,6 +1,8 @@
 # Helper
 An android library containing most of the helper classes every android developer needs
 
+![Current Version](https://img.shields.io/badge/currentVersion-0.0.1-green.svg)   ![Minimum SDK](https://img.shields.io/badge/minSdkVersion-14-orange.svg)
+
 ## The Problem
 Every Android developer faces few problems while developing Android Apps. Listing down some of them, which I have faced everytime I create a new android project. 
 
@@ -63,4 +65,37 @@ dependencies{
 ```
 
 ## Usage
+
+### Contents
+
+1. [HelperActivity](https://github.com/rohan2817/Helper#)
+2. [HelperFragment](https://github.com/rohan2817/Helper#)
+3. [HelperUtils](https://github.com/rohan2817/Helper#)
+4. [HelperPreferences](https://github.com/rohan2817/Helper#)
+5. [HelperStyles](https://github.com/rohan2817/Helper#)
+
+## HelperActivity
+
+This is the abstract activity which can be used to create activities with different methods included.It helps making activity's code clean and readable.
+
+## HelperFragment
+
+This is the abstract fragment which can be used to create fragments faster without writing the boilerplate code and has different methods which can come handy. It helps making fragment's code clean and readable.
+
+## HelperUtils
+
+This is an utility class which contains different utility methods to write log, check permissions for Android M & above, hide & show keyboard.
+
+## HelperPreferences
+
+Most widely used way to store key values in local storage in android is use of `SharedPreferences`. To make it easy to store and retrieve values from `SharedPreferences` this class will come in handy.
+
+## HelperStyles
+
+Finding the correct styles for different use cases is difficult, to solve this ready Helper styles can be used. Included styles take care of pre-lollipop & post-lollipop devices.
+
+
+
+
+
 
