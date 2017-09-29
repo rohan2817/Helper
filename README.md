@@ -44,8 +44,6 @@ dependencies{
 
 ## Including Helper
 
-Helper is hosted currently on maven so need to include maven repo and dependency as given below :
-
 Include using gradle dependency
 ```gradle
 dependencies{
