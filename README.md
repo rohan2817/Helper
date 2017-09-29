@@ -46,17 +46,7 @@ dependencies{
 
 Helper is hosted currently on maven so need to include maven repo and dependency as given below :
 
-In your project's `build.gradle` file include as :
-```gradle
-allprojects {
-    repositories {
-        jcenter()
-        //Other Urls
-        maven { url 'https://dl.bintray.com/rohan2817/maven' }
-    }
-}
-```
-In your app's `build.gradle` file include as :
+Include using gradle dependency
 ```gradle
 dependencies{
     //Other dependecies...
