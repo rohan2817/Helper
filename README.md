@@ -64,7 +64,54 @@ dependencies{
 
 ## HelperActivity
 
-This is the abstract activity which can be used to create activities with different methods included.It helps making activity's code clean and readable.
+This is the abstract activity which can be used to create activities easily. It comes with methods which are required frequently. It helps in keeping activity's code clean and readable.
+Here is sample activity created using `HelperActivity`
+
+```java
+public class MainActivity extends HelperActivity {
+    @Override
+    protected void create() {
+        /*Write code for actual activity functionality,
+        no need of writing any other initializations*/
+
+        //Set title to actionBar/toolbar
+        setTitle("Some Title");
+    }
+
+    @Override
+    protected Activity getActivity() {
+        //Return activity instance
+        return this;
+    }
+
+    @Override
+    protected int getLayout() {
+        //Return layout resource id for layout of this activity
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected boolean isToolbarPresent() {
+        //Return true if toolbar is needed
+        return true;
+    }
+}
+```
+
+Following is the list of methods readily available in `HelperActivity`
+
+| Method        | Description   |
+| :------------- |:-------------| 
+|`showToast(String msg)`      | Show a toast for short duration | 
+|`showToast(String msg, int length)`      | Show a toast with customised duration i.e `Toast.LONG` or `Toast.SHORT`.      | 
+|`setTitle(String title)` | Set title to actionbar/toolbar      |
+|`enableHome()`| Enable back button on action bar, this will work if `parentActivity` is defined in `AndroidManifest.xml` |
+|`launch(Class clazz)` | Launch a new activity, this method will save hassle of creating new intent object every time. Accepts a `.class` of new activity |
+| `getNewIntent(Class clazz)`|Get a new intent of an activity to launch, used when there is a need to pass extras to new activity. It returns Intent object for an activity to be launched.|
+|`showProgressDialog(String message, boolean isCancelable)` | Show a progress dialog with message and `isCancelable` boolean, uses the deprecated Progress Dialog as of now.|
+|`dismissProgressDialog()` | Dismiss the progress dialog, checks for the condition that `showProgressDialog()` method is called and activity is not finishing to avoid any exceptions.|
+
+More details can be found at [HelperActivity.java](https://github.com/rohan2817/Helper/blob/master/helper/src/main/java/me/rohanpeshkar/helper/HelperActivity.java)
 
 ## HelperFragment
 
