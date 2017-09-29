@@ -156,11 +156,56 @@ More details at [HelperFragment.java](https://github.com/rohan2817/Helper/blob/m
 
 ## HelperUtils
 
-This is an utility class which contains different utility methods to write log, check permissions for Android M & above, hide & show keyboard.
+An utility class containing utility methods like method write log, check permissions for Android M & above, hide & show keyboard.
+
+Following is the list of methods readily available in `HelperUtils`
+
+| Method        | Description   |
+| :------------- |:-------------| 
+|`logError(String error)`|Log an error message to `Logcat`|
+|`logDebug(String debug)`|Log a debug message to `Logcat`|
+|`logVerbose(String verbose)`|Log a verbose message to `Logcat`|
+|`logInfo(String info)`|Log an info message to `Logcat`|
+|`updateTag(String customTag)`|Update the log tag value|
+|`hasPermissions(Context context, String... permissions)`|Check whether App has permissions, it is executed if android M & above. Accepts an array of permissions.|
+|`getManifestPermissions(@NonNull final Activity activity)`|Retrieves all the permissions declared in the application's manifest. It returns a non null array of permissions that can be declared.|
+|`hideKeyboard(View view, Context context)`|Hide soft keyboard from any view|
+|`showKeyboard(View view, Context context)`|Method to forcefully show the soft keyboard.|
+
+More details at [HelperUtils.java](https://github.com/rohan2817/Helper/blob/master/helper/src/main/java/me/rohanpeshkar/helper/HelperUtils.java)
 
 ## HelperPreferences
 
 Most widely used way to store key values in local storage in android is use of `SharedPreferences`. To make it easy to store and retrieve values from `SharedPreferences` this class will come in handy.
+
+Here is example of how to use this class :
+```java
+//Save String to Preferences
+HelperPreferences.get(this).saveString("SomeKey","SomeValue");
+
+//Get String from Preferences
+String valueForKey = HelperPreferences.get(this).getString("SomeKey");
+
+//Clear all the shared preferences
+HelperPreferences.get(this).clear();
+```
+
+Following is the list of methods readily available in `HelperPreferences`
+
+| Method        | Description   |
+| :------------- |:-------------| 
+|`get(Context context)`| Get Singleton instance of class|
+|`saveString(String key, String value)`|Store `String` value corresponding to a key|
+|`saveInt(String key, int value)`|Store `int` value corresponding to a key|
+|`saveLong(String key, long value)`|Store `long` value corresponding to a key|
+|`saveFloat(String key, float value)`|Store `float` value corresponding to a key|
+|`saveBolean(String key, boolean value)`|Store `boolean` value corresponding to a key|
+|`getString(String key)`|Get `String` value from preferences for a given Key|
+|`getInt(int key)`|Get `int` value from preferences for a given Key|
+|`getLong(long key)`|Get `long` value from preferences for a given Key|
+|`getFloat(float key)`|Get `float` value from preferences for a given Key|
+|`getBoolean(boolean key)`|Get `boolean` value from preferences for a given Key|
+|`clear()`|Clear all the shared preferences stored, comes handy in scenarios like logout|
 
 ## HelperStyles
 
