@@ -64,7 +64,7 @@ dependencies{
 
 ## HelperActivity
 
-This is the abstract activity which can be used to create activities easily. It comes with methods which are required frequently. It helps in keeping activity's code clean and readable.
+An abstract activity which can be used to create activities easily without writing the boilerplate code. It comes with methods which are required frequently. It helps in keeping activity's code clean and readable.
 Here is sample activity created using `HelperActivity`
 
 ```java
@@ -111,11 +111,48 @@ Following is the list of methods readily available in `HelperActivity`
 |`showProgressDialog(String message, boolean isCancelable)` | Show a progress dialog with message and `isCancelable` boolean, uses the deprecated Progress Dialog as of now.|
 |`dismissProgressDialog()` | Dismiss the progress dialog, checks for the condition that `showProgressDialog()` method is called and activity is not finishing to avoid any exceptions.|
 
-More details can be found at [HelperActivity.java](https://github.com/rohan2817/Helper/blob/master/helper/src/main/java/me/rohanpeshkar/helper/HelperActivity.java)
+More details at [HelperActivity.java](https://github.com/rohan2817/Helper/blob/master/helper/src/main/java/me/rohanpeshkar/helper/HelperActivity.java)
 
 ## HelperFragment
 
-This is the abstract fragment which can be used to create fragments faster without writing the boilerplate code and has different methods which can come handy. It helps making fragment's code clean and readable.
+An abstract fragment which can be used to create fragments faster without writing the boilerplate code. It comes with methods which are required frequently. It helps in keeping fragment's code clean and readable.
+Here is sample fragment created using `HelperFragment`
+
+```java
+public class SampleFragment extends HelperFragment {
+    @Override
+    protected void start() {
+        /* Actual logic for fragment goes here, the code
+         which is written in onCreateView() */
+    }
+
+    @Override
+    protected Fragment getFragment() {
+        //Return instance of fragment
+        return this;
+    }
+
+    @Override
+    protected int getLayout() {
+        //Return layout resource id for fragment layout
+        return R.layout.layout_fragment_sample;
+    }
+}
+```
+
+Following is the list of methods readily available in `HelperFragment`
+
+| Method        | Description   |
+| :------------- |:-------------| 
+|`showToast(String msg)`      | Show a toast for short duration | 
+|`showToast(String msg, int length)`      | Show a toast with customised duration i.e `Toast.LONG` or `Toast.SHORT`.      | 
+|`launch(Class clazz)` | Launch a new activity, this method will save hassle of creating new intent object every time. Accepts a `.class` of new activity |
+| `getNewIntent(Class clazz)`|Get a new intent of an activity to launch, used when there is a need to pass extras to new activity. It returns Intent object for an activity to be launched.|
+|`showProgressDialog(String message, boolean isCancelable)` | Show a progress dialog with message and `isCancelable` boolean, uses the deprecated Progress Dialog as of now.|
+|`dismissProgressDialog()` | Dismiss the progress dialog, checks for the condition that `showProgressDialog()` method is called and activity is not finishing to avoid any exceptions.|
+
+More details at [HelperFragment.java](https://github.com/rohan2817/Helper/blob/master/helper/src/main/java/me/rohanpeshkar/helper/HelperFragment.java)
+
 
 ## HelperUtils
 
