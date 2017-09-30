@@ -207,9 +207,24 @@ Following is the list of methods readily available in `HelperPreferences`
 |`getBoolean(boolean key)`|Get `boolean` value from preferences for a given Key|
 |`clear()`|Clear all the shared preferences stored, comes handy in scenarios like logout|
 
+More details at [HelperPreferences.java](https://github.com/rohan2817/Helper/blob/master/helper/src/main/java/me/rohanpeshkar/helper/HelperPreferences.java)
+
 ## HelperStyles
 
 Finding the correct styles for different use cases is difficult, to solve this ready Helper styles can be used. Included styles take care of pre-lollipop & post-lollipop devices.
+
+Following is the list of styles available 
+
+| Method        | Description   |
+| :------------- |:-------------| 
+|`HelperTheme`| App theme which takes care for pre-lollipop & above lollipop devices|
+|`HelperTheme.FullScreen`|Theme which makes any activity full screen|
+|`HelperTheme.Transperant`|Theme which can be used to make any activity transparent|
+
+More Details at [HelperStyles](https://github.com/rohan2817/Helper/blob/master/helper/src/main/res/values-v21/styles.xml)
+
+
+
 
 
 
